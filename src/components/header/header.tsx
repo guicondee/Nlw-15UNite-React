@@ -1,4 +1,5 @@
-import Logo from "../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
+import { NavLink } from "../nav-link/nav-link";
 
 export function Header() {
   return (
@@ -9,12 +10,8 @@ export function Header() {
       />
 
       <nav className="flex gap-5">
-        <a className="text-sm font-medium text-zinc-300" href="">
-          Eventos
-        </a>
-        <a className="text-sm font-medium" href="">
-          Participantes
-        </a>
+        <NavLink>Eventos</NavLink>
+        <NavLink>Participante</NavLink>
       </nav>
     </div>
   );
