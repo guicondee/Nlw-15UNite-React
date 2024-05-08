@@ -14,12 +14,35 @@ import { TableHeader } from "../table/table-header";
 import { TableCell } from "../table/table-cell";
 import { TableRow } from "../table/table-row";
 import { ChangeEvent, useState } from "react";
+import { attendees } from "../../data/attendees";
 
-export function AtendeeList() {
+import moment from "moment";
+import "moment/dist/locale/pt-br";
+
+export function AttendeeList() {
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+
+  const totalPage = Math.ceil(attendees.length / 10);
 
   const handleSearchingInput = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
+  };
+
+  const goToNextPage = () => {
+    setPage(page + 1);
+  };
+
+  const goToPreviousPage = () => {
+    setPage(page - 1);
+  };
+
+  const goToFirstPage = () => {
+    setPage(1);
+  };
+
+  const goToLastPage = () => {
+    setPage(totalPage);
   };
 
   return (
@@ -53,23 +76,31 @@ export function AtendeeList() {
           </tr>
         </thead>
         <tbody>
-          {Array.from({ length: 8 }).map((_, index) => {
+          {attendees.slice((page - 1) * 10, page * 10).map((attendee) => {
             return (
-              <TableRow key={index}>
+              <TableRow key={attendee.id}>
                 <TableCell>
                   <CheckboxInput />
                 </TableCell>
-                <TableCell>52716</TableCell>
+                <TableCell>{attendee.id}</TableCell>
                 <TableCell>
                   <div className="flex flex-col gap-1">
                     <span className="text-white font-semibold">
-                      Guilherme Vinicios Conde
+                      {attendee.name}
                     </span>
-                    <span>gui.dev@gmail.com.br</span>
+                    <span>{attendee.email}</span>
                   </div>
                 </TableCell>
-                <TableCell>7 days ago</TableCell>
-                <TableCell>7 days ago</TableCell>
+                <TableCell>
+                  {moment(attendee.createdAt, "YYYYMMDD")
+                    .locale("pt-br")
+                    .fromNow()}
+                </TableCell>
+                <TableCell>
+                  {moment(attendee.checkInAt, "YYYYMMDD")
+                    .locale("pt-br")
+                    .fromNow()}
+                </TableCell>
                 <TableCell>
                   <IconButton transparent>
                     <MoreHorizontal className="size-4" />
@@ -81,22 +112,32 @@ export function AtendeeList() {
         </tbody>
         <tfoot>
           <tr>
-            <TableCell colSpan={3}>Showing 10 of 228 items</TableCell>
+            <TableCell colSpan={3}>
+              Mostrando 10 de {attendees.length} registros
+            </TableCell>
             <TableCell className="text-right" colSpan={3}>
               <div className="inline-flex items-center gap-8 ">
-                <span> Page 1 of 11</span>
+                <span>
+                  Pagina {page} de {totalPage}
+                </span>
 
                 <div className="flex gap-1.5">
-                  <IconButton>
+                  <IconButton disabled={page === 1} onClick={goToFirstPage}>
                     <ChevronsLeft className="size-4" />
                   </IconButton>
-                  <IconButton>
+                  <IconButton disabled={page === 1} onClick={goToPreviousPage}>
                     <ChevronLeft className="size-4" />
                   </IconButton>
-                  <IconButton>
+                  <IconButton
+                    disabled={page === totalPage}
+                    onClick={goToNextPage}
+                  >
                     <ChevronRight className="size-4" />
                   </IconButton>
-                  <IconButton>
+                  <IconButton
+                    disabled={page === totalPage}
+                    onClick={goToLastPage}
+                  >
                     <ChevronsRight className="size-4" />
                   </IconButton>
                 </div>
