@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+### 💻 Projeto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto da @rocketseateducation para aprimoramento em Reactjs e o uso de URL states parar persistir alguns parâmetro
 
-Currently, two official plugins are available:
+## ✨ Tecnologia
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [Tailwind](https://tailwindcss.com/)
 
-## Expanding the ESLint configuration
+## 🚀 Como executar
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Em todos os projetos, ao acessar a pasta, é preciso baixar os pacotes com o gerenciador de sua preferencia.
 
-- Configure the top-level `parserOptions` property like this:
+## 🔖 Layout
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Você pode visualizar o layout do projeto através do link abaixo:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [Layout](<https://www.figma.com/file/gxAI0ExNA0GkDAdzptVH9p/pass.in-(Community)?type=design&node-id=4003-2975&mode=design&t=qIppDzkmwsxmJIBk-0>)
+
+Lembrando que você precisa ter uma conta no [Figma](http://figma.com/).
+
+## 📝 License
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 🖼️ Imagens
+
+![data](public/data.png)
