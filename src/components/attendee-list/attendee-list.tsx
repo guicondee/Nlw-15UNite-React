@@ -139,6 +139,7 @@ export function AttendeeList() {
             <TableHeader style={{ width: 64 }}></TableHeader>
           </tr>
         </thead>
+
         <tbody>
           {attendees.map((attendee) => {
             return (
@@ -180,6 +181,7 @@ export function AttendeeList() {
             );
           })}
         </tbody>
+
         <tfoot>
           <tr>
             <TableCell colSpan={3}>
